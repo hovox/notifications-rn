@@ -1,6 +1,6 @@
 // @flow
 import React, { Component } from "react";
-import { View, Text, StyleSheet, Image } from "react-native";
+import { View, Text, StyleSheet, Image, Dimensions } from "react-native";
 
 type Props = { title: string, leftUrl: string, rightUrl: string };
 class SinglePhoto extends React.PureComponent<Props> {
@@ -26,6 +26,7 @@ class SinglePhoto extends React.PureComponent<Props> {
 const styles = StyleSheet.create({
   container: {
     height: 75,
+    width: Dimensions.get("window").width,
     flexDirection: "row",
     alignItems: "center",
     padding: 5

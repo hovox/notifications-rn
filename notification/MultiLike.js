@@ -59,7 +59,8 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "flex-start",
     padding: 5,
-    backgroundColor: "lightgrey"
+    backgroundColor: "lightgrey",
+    width: Dimensions.get("window").width
   },
   leftImage: {
     width: 35,

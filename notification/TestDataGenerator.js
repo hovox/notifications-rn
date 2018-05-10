@@ -3,13 +3,15 @@
 const fs = require("fs");
 
 // const configs = [{ type: "singlePhotoLike", count: 200 }];
-const configs = [
-  { type: "multiPhotoLike", count: 40, minPhotoCount: 2, maxPhotoCount: 7 },
-  { type: "singlePhotoLike", count: 100 },
-  { type: "multiLike", count: 25, minPhotoCount: 2, maxPhotoCount: 7 }
-];
+// const configs = [
+//   { type: "multiPhotoLike", count: 40, minPhotoCount: 2, maxPhotoCount: 7 },
+//   { type: "singlePhotoLike", count: 100 },
+//   { type: "multiLike", count: 25, minPhotoCount: 2, maxPhotoCount: 7 }
+// ];
 // const configs = [{ type: "multiLike", count: 150, minPhotoCount: 2, maxPhotoCount: 6 }];
 // const configs = [{ type: "multiPhotoLike", count: 50, minPhotoCount: 6, maxPhotoCount: 20 }];
+
+const configs = [{ type: "feed", count: 1000 }];
 
 const urlsPath = "./urls.json";
 const urls = JSON.parse(fs.readFileSync(urlsPath, "utf8"));
@@ -32,6 +34,21 @@ for (let idx = 0; idx < configs.length; idx++) {
       minPhotoCount: config.minPhotoCount,
       maxPhotoCount: config.maxPhotoCount
     });
+  } else if (config.type === "feed") {
+    generateFeedData(config.count);
+  }
+}
+
+function generateFeedData(count) {
+  let offset = result.length;
+  for (let idx = 0; idx < count; idx++) {
+    let ratio = Math.random();
+    if (ratio < 0.2) {
+      ratio = 0.2;
+    }
+    const obj = { type: "feed", url: urls[offset] + "?r480x480", ratio: ratio };
+    result.push(obj);
+    offset += 1;
   }
 }
 

@@ -7,6 +7,9 @@
 import React, { Component } from "react";
 import ReactNative, { Platform, StyleSheet, Text, View, UIManager } from "react-native";
 import NotificationList from "./notification/NotificationList";
+import Recycler from "./notification/Recycler";
+import Recycler2 from "./notification/Recycler2";
+import MasonaryLayout from "./notification/MasonaryLayout";
 
 type LayoutRectangle = {
   x: number,
@@ -20,17 +23,14 @@ type LayoutChangeEvent = {
   }
 };
 
-const instructions = Platform.select({
-  ios: "Press Cmd+R to reload,\n" + "Cmd+D or shake for dev menu",
-  android: "Double tap R on your keyboard to reload,\n" + "Shake or press menu button for dev menu"
-});
-
 type Props = {};
 export default class App extends Component<Props> {
   render() {
     return (
       <View style={styles.container}>
-        <NotificationList />
+        {/* <NotificationList /> */}
+        {/* <Recycler2 /> */}
+        <MasonaryLayout />
       </View>
     );
   }
